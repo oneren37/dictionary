@@ -8,10 +8,13 @@
     <title>Dictionary</title>
 </head>
 <body>
-    <header class="header container">
-        <div class="header__logo">Dictionary</div>
-        <div class="header__user">
-            <a href="exit.php">Выйти</a>
+    <header class="header">
+        <div class="header-inner container">
+            <div class="header__logo">Dictionary</div>
+            <div class="header__user">
+                <?php echo $_COOKIE['user']?>
+                <a href="exit.php">Выйти</a>
+            </div>
         </div>
     </header>
 

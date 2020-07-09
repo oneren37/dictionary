@@ -8,8 +8,8 @@
 <div class="wrap">
 <form action="edit.php" method="post" class="form form_edit">
     <div class="form__title">Добавить новое слово</div>
-    <input type="text" name="ru" placeholder="На русском">
-    <input type="text" name="en" placeholder="На английском">
+    <input type="text" name="ru" placeholder="На русском" autocomplete="off">
+    <input type="text" name="en" placeholder="На английском" autocomplete="off">
     <input type="submit" value="Добавить">
 </form>
 
@@ -21,10 +21,9 @@
         <button id="en-ru">EN -> RU</button>
     </div>
     <div class="training-inner">
-        <div id="task" class="training__task">тут слово</div>
+        <div id="task" class="training__task"></div>
         <input type="text" id="translation">
         <button id="check">Проверить </button>
-        <div id="result"></div>
         <button id="next">Следующее слово</button>
     </div>
     

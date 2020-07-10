@@ -1,7 +1,7 @@
 
 <?php
 $mysql = new mysqli('localhost', 'root', 'root', 'dictionary');
-$result = $mysql->query("SELECT * FROM {$_COOKIE['user']}_dictionary ORDER BY rate DESC LIMIT 10") or die($mysql->error);
+$result = $mysql->query("SELECT * FROM {$_COOKIE['user']}_dictionary ORDER BY rate LIMIT 10") or die($mysql->error);
 $mysql->close();
 
 // $i = 0; $words = [];

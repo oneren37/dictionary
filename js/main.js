@@ -68,6 +68,7 @@ check.onclick = () => {
 next.onclick = () => {
     word = getWord();
     task.innerHTML = trainingMode ? word["ru"] : word["en"];
-    result.innerHTML = "";
+    translation.value = "";
+    body.style["background-color"] = "#ffffff";
     translation.value = "";
 };

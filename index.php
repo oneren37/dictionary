@@ -6,11 +6,12 @@
 
 
 <div class="wrap">
-<form action="edit.php" method="post" class="form form_edit">
+<form action="" method="post" class="form form_edit">
     <div class="form__title">Добавить новое слово</div>
-    <input type="text" name="ru" placeholder="На русском" autocomplete="off">
-    <input type="text" name="en" placeholder="На английском" autocomplete="off">
-    <input type="submit" value="Добавить">
+    <input type="text" name="ru" placeholder="На русском" autocomplete="off" id="ru">
+    <input type="text" name="en" placeholder="На английском" autocomplete="off" id="en">
+    <input type="button" value="Добавить" id="add-new">
+    <div class="error"></div>
 </form>
 
 

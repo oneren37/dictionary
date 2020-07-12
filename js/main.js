@@ -21,27 +21,7 @@ function upRate(wordId){
     request.send(params);
 }
 
-// function setDefault(){
-    
-// }
-
-let trainingMode = true;
-// RuEn = true
-// EnRu = false
-let body = document.querySelector("body");
-let task = document.querySelector("#task");
-let translation = document.querySelector("#translation");
-let check = document.querySelector("#check");
-let next = document.querySelector("#next");
-let word = getWord();
-
-document.querySelector("#ru-en").onclick = () => {trainingMode = true}
-document.querySelector("#en-ru").onclick = () => {trainingMode = false}
-next.onclick = () => {task = getWord();}
-
-task.innerHTML = trainingMode ? word["ru"] : word["en"];
-
-check.onclick = () => {
+function checkWord() {
     if (trainingMode){
         if (translation.value == word["en"]){
             body.style["background-color"] = "rgba(63, 191, 63, 0.17)"
@@ -63,12 +43,64 @@ check.onclick = () => {
             task.innerHTML = "Correct: " + word["ru"];
         }
     }
-    
 }
-next.onclick = () => {
+
+function nextWord(){
     word = getWord();
     task.innerHTML = trainingMode ? word["ru"] : word["en"];
     translation.value = "";
     body.style["background-color"] = "#ffffff";
     translation.value = "";
-};
+}
+
+let trainingMode = true;
+// RuEn = true
+// EnRu = false
+let body = document.querySelector("body");
+let task = document.querySelector("#task");
+let translation = document.querySelector("#translation");
+let check = document.querySelector("#check");
+let next = document.querySelector("#next");
+let word = getWord();
+
+// -- валидация формы ввода новых слов
+
+let addButton = document.querySelector("#add-new");
+let error = document.querySelector(".error");
+
+addButton.onclick = () => {
+    let ru = document.querySelector("#ru");
+    let en = document.querySelector("#en");
+
+    const request = new XMLHttpRequest();
+    const url = "edit.php";
+    request.open("POST", url, false);
+    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    let params = "ru=" + ru.value + "&en=" + en.value;
+    request.send(params);
+    
+    let resp = request.response;
+    error.innerHTML = resp;
+    ru.value = "";
+    en.value = "";
+}
+
+document.querySelector("#ru-en").onclick = () => {trainingMode = true}
+document.querySelector("#en-ru").onclick = () => {trainingMode = false}
+next.onclick = () => {task = getWord();}
+
+//task.innerHTML = trainingMode ? word["ru"] : word["en"];
+
+check.onclick = () => checkWord();
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode === 13) {
+        checkWord();
+    }
+});
+document.addEventListener('keydown', function(e) {
+    if (e.keyCode === 16) {
+        nextWord();
+    }
+});
+
+next.onclick = () => nextWord();

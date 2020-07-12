@@ -87,9 +87,9 @@ addButton.onclick = () => {
 
 document.querySelector("#ru-en").onclick = () => {trainingMode = true}
 document.querySelector("#en-ru").onclick = () => {trainingMode = false}
-next.onclick = () => {task = getWord();}
+next.onclick = () => {getWord();}
 
-//task.innerHTML = trainingMode ? word["ru"] : word["en"];
+task.innerHTML = trainingMode ? word["ru"] : word["en"];
 
 check.onclick = () => checkWord();
 document.addEventListener('keydown', function(e) {

@@ -9,13 +9,13 @@ if ($ru == "" || $en == ""){
 }
 else{
     $mysql = new mysqli('localhost', 'root', 'root', 'dictionary');
-    $result = $mysql->query("SELECT * FROM `{$login}_dictionary` WHERE {$ru} = ru OR {$en} = en");
-    if (!$result->fetch_assoc()){
+    $result = $mysql->query("SELECT * FROM `{$login}_dictionary` WHERE `ru` = '$ru'") or die($mysql->error);
+    $word = $result->fetch_assoc();
+    if (!$word){
         $mysql->query("INSERT INTO `{$login}_dictionary` (`ru`, `en`, `rate`) VALUES('$ru', '$en', '0')");
-        $mysql->close();
     }
     else{
         echo "Такое слово уже есть";
     }
-    
+    $mysql->close();
 }

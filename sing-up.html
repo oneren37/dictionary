@@ -12,9 +12,18 @@
         <div class="header-inner container">
             <div class="header__logo">Dictionary</div>
             <div class="header__user">
-                <?php echo $_COOKIE['user']?>
-                <a href="exit.php">Выйти</a>
+                <span class="login"></span>
             </div>
         </div>
     </header>
 
+
+    <form action="php/reg.php" method="post" class="form form_auth">
+        <div class="form__title">Регистрация</div>
+        <input type="text" name="login" placeholder="Логин">
+        <input type="password" name="password" placeholder="Пароль">
+        <input type="submit">
+    </form>
+
+</body>
+</html>

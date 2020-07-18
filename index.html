@@ -1,8 +1,23 @@
-<?php if($_COOKIE['user'] == ""){
-    header("Location: /sing-in.php");
-}
-?>
-<?php require "header.php" ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Dictionary</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner container">
+            <div class="header__logo">Dictionary</div>
+            <div class="header__user">
+                <span class="login"></span>
+                <a href="php/exit.php">Выйти</a>
+            </div>
+        </div>
+    </header>
 
 
 <div class="wrap">
@@ -23,7 +38,7 @@
     </div>
     <div class="training-inner">
         <div id="task" class="training__task"></div>
-        <input type="text" id="translation">
+        <input type="text" id="translation" autofocus>
         <button id="check">Проверить </button>
         <button id="next">Следующее слово</button>
     </div>
@@ -32,5 +47,6 @@
 </div>
 
 <script src="js/main.js"></script>
-<?php require "footer.php" ?>
 
+</body>
+</html>

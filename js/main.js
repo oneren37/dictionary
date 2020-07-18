@@ -1,6 +1,17 @@
+///--- sing in check ---///
+
+if (document.cookie == ""){
+    window.location.replace("/sing-in.html");
+}
+
+document.querySelector(".login").innerHTML = document.cookie.split('=')[1];
+
+
+///--- default training ---///
+
 function getWord(){
     const request = new XMLHttpRequest();
-    const url = "get-word.php";
+    const url = "php/get-word.php";
 
     //request.responseType = "json";
     request.open("POST", url, false);
@@ -12,7 +23,7 @@ function getWord(){
 
 function upRate(wordId){
     const request = new XMLHttpRequest();
-    const url = "up-rate.php";
+    const url = "php/up-rate.php";
     const params = "id=" + wordId;
 
     request.open("POST", url, false);
@@ -73,7 +84,7 @@ addButton.onclick = () => {
     let en = document.querySelector("#en");
 
     const request = new XMLHttpRequest();
-    const url = "edit.php";
+    const url = "php/edit.php";
     request.open("POST", url, false);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     let params = "ru=" + ru.value + "&en=" + en.value;

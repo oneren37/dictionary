@@ -1,18 +1,13 @@
-
 <?php
 $mysql = new mysqli('localhost', 'root', 'root', 'dictionary');
-$result = $mysql->query("SELECT * FROM {$_COOKIE['user']}_dictionary ORDER BY rate LIMIT 10") or die($mysql->error);
-$mysql->close();
+$result = $mysql->query("SELECT * FROM {$_COOKIE['user']}_dictionary WHERE active=1 ORDER BY rate LIMIT 10") or die($mysql->error);
 
-// $i = 0; $words = [];
-// while ($result->fetch_assoc()){
-//     $words[$i] = $result->fetch_assoc();
-//     $i+=1;
-// }
+
 $words = [];
-for ($i = 0; $i < 10; $i+=1){
-    $words[$i] = $result->fetch_assoc();
+while ($word = $result->fetch_assoc()){
+    array_push($words, $word);
 }
 
-// print_r($words);
-echo json_encode($words[rand(0,9)]);
+echo json_encode($words[array_rand($words)]);
+
+$mysql->close();

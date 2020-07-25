@@ -14,7 +14,7 @@
             <div class="header__logo">Dictionary</div>
             <div class="header__user">
                 <span class="login"></span>
-                <a href="php/exit.php">Выйти</a>
+                <button><a href="php/exit.php">Выйти</a></button>
             </div>
         </div>
     </header>
@@ -31,22 +31,24 @@
 
 
 <div class="training">
-    <div class="training-mode">
-        <p>Режим тренировки: </p>
-        <button id="ru-en">RU -> EN</button>
-        <button id="en-ru">EN -> RU</button>
-    </div>
+    
     <div class="training-inner">
         <div id="task" class="training__task"></div>
         <input type="text" id="translation" autofocus>
         <button id="check">Проверить </button>
         <button id="next">Следующее слово</button>
     </div>
+    <div class="training-mode">
+        <button id="ru-en">RU -> EN</button>
+        <button id="en-ru">EN -> RU</button>
+        <button><a href="list.html">Выбрать слова для тренировки</a></button>
+    </div>
     
 </div>
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/index.js"></script>
 
 </body>
 </html>

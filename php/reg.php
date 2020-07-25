@@ -16,7 +16,9 @@ else{
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         ru VARCHAR(200) NOT NULL,
         en VARCHAR(200) NOT NULL, 
-        rate INT NOT NULL
+        rate INT NOT NULL,
+        date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        active BOOLEAN NOT NULL DEFAULT TRUE
     )");
     setcookie("user", $login, time() + 3600 * 24, "/");
     header("Location: /");

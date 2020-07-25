@@ -7,8 +7,12 @@
 body
     height: 100vh
 
+a
+    text-decoration: none
+    color: #000
+
 .header
-    position: absolute
+    position: fixed
     top: 0
     left: 0
     width: 100%
@@ -22,6 +26,10 @@ body
 
     &__logo
         font-size: 30px
+
+    &_opaque
+        background-color: #fff
+        padding-bottom: 20px
 
 .container
     width: 80%
@@ -67,6 +75,7 @@ input
         margin-bottom: 10px
 
 button
+    margin: 10px 10px 0 0
     border: none
     border: 1px solid #ccc
     border-radius: 5px 
@@ -86,3 +95,42 @@ button
         font-size: 30px
         font-weight: 900
  
+
+.list-container
+    margin-top: 100px
+    margin-bottom: 100px
+    padding-left: 20% 
+    padding-right: 20% 
+    max-width: 1500px
+
+.list
+    &-row
+        display: flex
+        justify-content: space-between
+        border-bottom: 1px solid #eee
+        padding-top: 20px
+        padding-bottom: 5px
+
+        &__n
+            color: rgba(#000, 0.7)
+
+        &__date
+            height: 30px
+            width: 100%
+            text-align: center
+            color: rgba(#000, 0.7)
+            margin-top: 30px
+
+        &__ru
+            display: block
+            width: 200px
+            
+
+        &__en
+            display: block
+            width: 200px
+
+        &__checkbox
+            width: 10px
+            height: 10px
+            font-size: 20px
